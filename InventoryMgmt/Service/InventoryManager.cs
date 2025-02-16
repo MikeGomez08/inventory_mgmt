@@ -15,6 +15,7 @@ namespace InventoryMgmt.Service
     {
         private readonly List<Product> _products = [];
         private int _currentID = 1;
+        public IReadOnlyList<Product> Products => _products;
 
         public void AddNewProduct(string name, int quantity, decimal price) => AddProduct(new() { Name = name, QuantityInStock = quantity, Price = price });
 
@@ -89,6 +90,7 @@ namespace InventoryMgmt.Service
         }
         public void GetTotalValue()
         {
+
             Console.ForegroundColor = ConsoleColor.Green;
             if (_products.Count == 0)
                 Console.WriteLine("Total value of inventory: 0.00");
